@@ -46,7 +46,7 @@ document.getElementById('pen').appendChild(medium);
 
 
 
-/*________________   CANVAS  ____________________*/
+/*________________ CANVAS  ____________________*/
 
 var x;
 var y;
