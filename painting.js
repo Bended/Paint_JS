@@ -51,24 +51,27 @@ document.getElementById('pen').appendChild(medium);
 var x;
 var y;
 
-function pix(){
-	var new_pix = document.createElement('div');
-	new_pix.className = pix;
-	document.getElementById('canvas').appendChild('new_pix');
-	document.setAttribute('new_pix').style.top = y;
-	document.setAttribute('new_pix').style.left = x;
-
-}
-
-function draw(e){
-	x = e.clientX;
-    y = e.clientY;
-    console.log(x + " / " + y);
-    pix();
-}
-
 var can = document.createElement('div');
 can.className = 'canvas';
 can.setAttribute('Id', 'canvas_div');
 document.body.appendChild(can);
 can.addEventListener('click', draw);
+
+//function pix(){
+//	var new_pix = document.createElement('div');
+//	new_pix.className = pix;
+//	document.getElementById('canvas').appendChild('new_pix');
+//
+//}
+
+function draw(e){
+    var can = document.getElementById('canvas_div');
+    var new_pix = document.createElement('div');
+	new_pix.className = 'pix';
+	document.getElementById('canvas_div').appendChild(new_pix);
+	x = e.pageX + 'px';
+    y = e.pageY + 'px';
+	new_pix.style.top = y;
+	new_pix.style.left = x;
+    console.log(x + " / " + y);
+}
