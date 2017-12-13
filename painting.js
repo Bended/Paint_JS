@@ -1,3 +1,7 @@
+var left_menu = document.createElement('div');
+left_menu.setAttribute('Id', 'left_menu');
+document.body.appendChild(left_menu);
+
 
 /*________________  TOP MENU  _____________________*/
 
@@ -30,19 +34,43 @@ yellow.className = 'color';
 yellow.setAttribute('Id', 'yellow');
 document.getElementById('top_menu').appendChild(yellow);
 
-var pen = document.createElement('div');
-pen.setAttribute('Id', 'pen');
-document.getElementById('top_menu').appendChild(pen);
+var more_color = document.createElement('div');
+more_color.setAttribute('Id', 'more_color');
+document.getElementById('top_menu').appendChild(more_color);
+
+var input_color = document.createElement("INPUT");
+input_color.setAttribute("type", "color");
+input_color.setAttribute('Id', 'input_color');
+document.getElementById('more_color').appendChild(input_color);
+
+//var pen = document.createElement('div');
+//pen.setAttribute('Id', 'pen');
+//document.getElementById('top_menu').appendChild(pen);
 
 var large = document.createElement('div');
 large.className = 'size';
 large.setAttribute('Id', 'large');
-document.getElementById('pen').appendChild(large);
+document.getElementById('top_menu').appendChild(large);
+
 
 var medium = document.createElement('div');
 medium.className = 'size';
 medium.setAttribute('Id', 'medium');
-document.getElementById('pen').appendChild(medium);
+document.getElementById('top_menu').appendChild(medium);
+
+var small = document.createElement('div');
+small.className = 'size';
+small.setAttribute('Id', 'small');
+document.getElementById('top_menu').appendChild(small);
+
+var square = document.createElement('div');
+square.className = 'shape';
+document.getElementById('top_menu').appendChild(square);
+
+var round = document.createElement('div');
+round.className = 'shape'
+round.setAttribute('Id', 'round');
+document.getElementById('top_menu').appendChild(round);
 
 
 
@@ -65,7 +93,7 @@ can.addEventListener('click', draw);
 //}
 
 function draw(e){
-    var can = document.getElementById('canvas_div');
+    //var can = document.getElementById('canvas_div');
     var new_pix = document.createElement('div');
 	new_pix.className = 'pix';
 	document.getElementById('canvas_div').appendChild(new_pix);
@@ -75,3 +103,4 @@ function draw(e){
 	new_pix.style.left = x;
     console.log(x + " / " + y);
 }
+
