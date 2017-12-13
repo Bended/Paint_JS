@@ -13,26 +13,31 @@ var blue = document.createElement('div');
 blue.className = 'color';
 blue.setAttribute('Id', 'blue');
 top_menu.appendChild(blue);
+blue.addEventListener('click', color);
 
 var red = document.createElement('div');
 red.className = 'color';
 red.setAttribute('Id', 'red');
 document.getElementById('top_menu').appendChild(red);
+red.addEventListener('click', color);
 
 var green = document.createElement('div');
 green.className = 'color';
 green.setAttribute('Id', 'green');
 document.getElementById('top_menu').appendChild(green);
+green.addEventListener('click', color);
 
 var black = document.createElement('div');
 black.className = 'color';
 black.setAttribute('Id', 'black');
 document.getElementById('top_menu').appendChild(black);
+black.addEventListener('click', color);
 
 var yellow = document.createElement('div');
 yellow.className = 'color';
 yellow.setAttribute('Id', 'yellow');
 document.getElementById('top_menu').appendChild(yellow);
+yellow.addEventListener('click', color);
 
 var more_color = document.createElement('div');
 more_color.setAttribute('Id', 'more_color');
@@ -51,26 +56,31 @@ var large = document.createElement('div');
 large.className = 'size';
 large.setAttribute('Id', 'large');
 document.getElementById('top_menu').appendChild(large);
+large.addEventListener('click', size);
 
 
 var medium = document.createElement('div');
 medium.className = 'size';
 medium.setAttribute('Id', 'medium');
 document.getElementById('top_menu').appendChild(medium);
+medium.addEventListener('click', size);
 
 var small = document.createElement('div');
 small.className = 'size';
 small.setAttribute('Id', 'small');
 document.getElementById('top_menu').appendChild(small);
+small.addEventListener('click', size);
 
 var square = document.createElement('div');
 square.className = 'shape';
 document.getElementById('top_menu').appendChild(square);
+square.addEventListener('click', shape);
 
 var round = document.createElement('div');
 round.className = 'shape'
 round.setAttribute('Id', 'round');
 document.getElementById('top_menu').appendChild(round);
+round.addEventListener('click', shape);
 
 
 
