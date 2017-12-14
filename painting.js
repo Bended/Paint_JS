@@ -66,7 +66,8 @@ document.getElementById('more_color').appendChild(input_color);
 
 var size_input = document.createElement("INPUT");
 size_input.setAttribute("type", "number");
-size_input.setAttribute('Id','input_size')
+size_input.setAttribute('Id','input_size');
+size_input.value = 2;
 more_color.appendChild(size_input);
 
 var size_label = document.createElement('label')
@@ -77,25 +78,32 @@ var clickedColor;
 function get_drawing_color () {
     var x = document.getElementsByClassName('color');
     clickedColor = this.value;
-    console.log(clickedColor);
     return clickedColor;
 }
-
-
-/*______________________________________________________SIZE SELECTION*/
-
 
 /*_______________________________________________________SHAPE SELECTION*/
 var square = document.createElement('button');
 square.className = 'shape';
+square.setAttribute('Id', 'sqr');
 document.getElementById('top_menu').appendChild(square);
-/*square.addEventListener('click', get_shape);*/
+square.addEventListener('click', get_shape);
 
 var round = document.createElement('button');
 round.className = 'shape'
 round.setAttribute('Id', 'round');
 document.getElementById('top_menu').appendChild(round);
-/*round.addEventListener('click', get_shape);*/
+round.addEventListener('click', get_shape);
+
+var selected_shape;
+function get_shape() {
+    if (this.id == 'round'){
+        selected_shape = '100px';
+        console.log(this.Id);}
+            else if (this.id == 'sqr') {
+                selected_shape = '0px';
+                console.log(this.Id);}
+    console.log(selected_shape);
+    }
 
 
 
@@ -107,6 +115,7 @@ var y;
 var can = document.createElement('div');
 can.className = 'canvas';
 can.setAttribute('Id', 'canvas_div');
+can.style.backgroundColor = "white";
 document.body.appendChild(can);
 can.addEventListener('click', draw);
 
@@ -115,13 +124,13 @@ function draw(e){
     var new_pix = document.createElement('div');
 	new_pix.className = 'pix';
 	new_pix.style.backgroundColor = clickedColor;
-	console.log()
-
+	new_pix.style.width = size_input.value + 'px';
+	new_pix.style.height = size_input.value + 'px';
+    new_pix.style.borderRadius = selected_shape;
 	document.getElementById('canvas_div').appendChild(new_pix);
 	x = e.pageX + 'px';
     y = e.pageY + 'px';
 	new_pix.style.top = y;
 	new_pix.style.left = x;
-    console.log(x + " / " + y);
 }
 
