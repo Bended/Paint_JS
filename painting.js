@@ -13,6 +13,11 @@ open_button.innerHTML = "OPEN";
 var clear_button = document.createElement('button');
 left_menu.appendChild(clear_button);
 clear_button.innerHTML = "CLEAR";
+clear_button.addEventListener('click', clear)
+
+function clear() {
+    document.getElementById('canvas_div').innerHTML = " ";
+    }
 
 /*________________  TOP MENU  _____________________*/
 
@@ -67,7 +72,7 @@ document.getElementById('more_color').appendChild(input_color);
 var size_input = document.createElement("INPUT");
 size_input.setAttribute("type", "number");
 size_input.setAttribute('Id','input_size');
-size_input.value = 2;
+size_input.value = 5;
 more_color.appendChild(size_input);
 
 var size_label = document.createElement('label')
@@ -105,32 +110,68 @@ function get_shape() {
     console.log(selected_shape);
     }
 
+var eraser = document.createElement('img');
+eraser.style.width = '30px';
+eraser.style.height = '30px';
+eraser.style.marginBottom = '10px';
+eraser.src = "http://icons.iconarchive.com/icons/iconsmind/outline/256/Eraser-3-icon.png";
+eraser.addEventListener('click', erase);
+top_menu.appendChild(eraser);
+
+
+function erase() {
+    clickedColor = 'white';
+}
 
 
 /*________________ CANVAS  ____________________*/
-
-var x;
-var y;
 
 var can = document.createElement('div');
 can.className = 'canvas';
 can.setAttribute('Id', 'canvas_div');
 can.style.backgroundColor = "white";
 document.body.appendChild(can);
-can.addEventListener('click', draw);
+/*can.addEventListener('click', draw);*/
 
-function draw(e){
-    var can = document.getElementById('canvas_div');
-    var new_pix = document.createElement('div');
-	new_pix.className = 'pix';
-	new_pix.style.backgroundColor = clickedColor;
-	new_pix.style.width = size_input.value + 'px';
-	new_pix.style.height = size_input.value + 'px';
-    new_pix.style.borderRadius = selected_shape;
-	document.getElementById('canvas_div').appendChild(new_pix);
-	x = e.pageX + 'px';
+var paint = false;
+var x;
+var y;
+
+$('#canvas_div').mousedown(function(e) {
+    paint = true;
+    console.log("move");
+    x = e.pageX + 'px';
     y = e.pageY + 'px';
-	new_pix.style.top = y;
-	new_pix.style.left = x;
+    draw();
+});
+$('#canvas_div').mouseup(function(e) {
+    paint = false;
+});
+
+$("#canvas_div").mousemove(function(e) {
+    if(paint) {
+        console.log("move");
+        x = e.pageX + 'px';
+        y = e.pageY + 'px';
+        draw();
+    }
+    else {
+        console.log("dontmove");
+    }
+});
+
+function draw(){
+    if (paint = true) {
+        var can = document.getElementById('canvas_div');
+        var new_pix = document.createElement('div');
+        new_pix.className = 'pix';
+        new_pix.style.backgroundColor = clickedColor;
+        new_pix.style.width = size_input.value + 'px';
+        new_pix.style.height = size_input.value + 'px';
+        new_pix.style.borderRadius = selected_shape;
+        document.getElementById('canvas_div').appendChild(new_pix);
+        new_pix.style.top = y;
+        new_pix.style.left = x;
+    }
 }
 
