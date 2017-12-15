@@ -23,12 +23,30 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
       <!--Google font library-->
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
   </head>
 
 
 <body>
 
+
+<div id="modal-wrapper" style="display:none;">
+    <div class="modal">
+        <span class="close" onclick="closed()">&times;</span>
+        <div class="modal-title">New drawing</div>
+        <div class="modal-content">Your drawing name :
+            <input type="text" id="drawing-name" /><br>
+        </div>
+        <div class="modal-content">Drawing Width (px):
+            <input type="number" id="canvas_width"/> Drawing height (px) :
+            <input type="number" id="canvas_height"/>
+        </div>
+
+        <br>
+        <button onclick="closed()">Cancel</button>
+        <button onclick="ok()">OK</button>
+    </div>
+</div>
        <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="./painting.js"></script>
 </body>

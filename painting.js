@@ -2,6 +2,19 @@ var left_menu = document.createElement('div');
 left_menu.setAttribute('Id', 'left_menu');
 document.body.appendChild(left_menu);
 
+var new_button = document.createElement('button');
+left_menu.appendChild(new_button);
+new_button.innerHTML = "NEW";
+new_button.addEventListener('click', new_drawing);
+
+function new_drawing() {
+    document.getElementById('modal-wrapper').style = 'block';
+}
+
+function closed() {
+    document.getElementById('modal-wrapper').style.display = 'none';
+}
+
 var save_button = document.createElement('button');
 left_menu.appendChild(save_button);
 save_button.innerHTML = "SAVE";
@@ -102,12 +115,10 @@ round.addEventListener('click', get_shape);
 var selected_shape;
 function get_shape() {
     if (this.id == 'round'){
-        selected_shape = '100px';
-        console.log(this.Id);}
+        selected_shape = '100px';}
             else if (this.id == 'sqr') {
                 selected_shape = '0px';
-                console.log(this.Id);}
-    console.log(selected_shape);
+    }
     }
 
 var eraser = document.createElement('img');
@@ -124,13 +135,28 @@ function erase() {
 }
 
 
-/*________________ CANVAS  ____________________*/
+/*________________________________________________ CANVAS  ____________________*/
 
-var can = document.createElement('div');
-can.className = 'canvas';
-can.setAttribute('Id', 'canvas_div');
-can.style.backgroundColor = "white";
-document.body.appendChild(can);
+var canvas_height;
+var canvas_width;
+
+function ok() {
+    canvas_width = document.getElementById('canvas_width').value;
+    canvas_height = document.getElementById('canvas_height').value;
+    can.style.display = 'inline-block';
+    can.style.height = canvas_height + 'px';
+    can.style.width = canvas_width + 'px';
+    clear();
+    closed();
+}
+
+    var can = document.createElement('div');
+    can.className = 'canvas';
+    can.setAttribute('Id', 'canvas_div');
+    can.style.backgroundColor = "white";
+    document.body.appendChild(can);
+    can.style.display = 'none';
+
 /*can.addEventListener('click', draw);*/
 
 var paint = false;
@@ -139,7 +165,6 @@ var y;
 
 $('#canvas_div').mousedown(function(e) {
     paint = true;
-    console.log("move");
     x = e.pageX + 'px';
     y = e.pageY + 'px';
     draw();
@@ -150,13 +175,9 @@ $('#canvas_div').mouseup(function(e) {
 
 $("#canvas_div").mousemove(function(e) {
     if(paint) {
-        console.log("move");
         x = e.pageX + 'px';
         y = e.pageY + 'px';
         draw();
-    }
-    else {
-        console.log("dontmove");
     }
 });
 
