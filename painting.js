@@ -38,7 +38,7 @@ var top_menu = document.createElement('div');
 top_menu.setAttribute('Id', 'top_menu');
 document.body.appendChild(top_menu);
 
-var blue = document.createElement('button');
+/*var blue = document.createElement('button');
 blue.className = 'color';
 blue.setAttribute('Id', 'blue');
 blue.setAttribute('value' , 'blue')
@@ -75,31 +75,40 @@ yellow.addEventListener('click', get_drawing_color);
 
 var more_color = document.createElement('div');
 more_color.setAttribute('Id', 'more_color');
-document.getElementById('top_menu').appendChild(more_color);
+document.getElementById('top_menu').appendChild(more_color);*/
+
+var color_label = document.createElement('p');
+top_menu.appendChild(color_label);
+color_label.innerHTML = 'Select Color :'
 
 var input_color = document.createElement("INPUT");
 input_color.setAttribute("type", "color");
 input_color.setAttribute('Id', 'input_color');
-document.getElementById('more_color').appendChild(input_color);
+document.getElementById('top_menu').appendChild(input_color);
+
+var size_label = document.createElement('p');
+size_label.setAttribute('Id', 'size_label');
+top_menu.appendChild(size_label);
+size_label.innerHTML = 'Select Size :';
 
 var size_input = document.createElement("INPUT");
 size_input.setAttribute("type", "number");
 size_input.setAttribute('Id','input_size');
 size_input.value = 5;
-more_color.appendChild(size_input);
+top_menu.appendChild(size_input);
 
-var size_label = document.createElement('label')
-size_input.appendChild(size_label);
-size_label.innerHTML = 'size';
-
-var clickedColor;
+/*var clickedColor;                       #####  function that works with color buttons    #####
 function get_drawing_color () {
     var x = document.getElementsByClassName('color');
     clickedColor = this.value;
     return clickedColor;
-}
+}*/
 
 /*_______________________________________________________SHAPE SELECTION*/
+var shape_label = document.createElement('p');
+top_menu.appendChild(shape_label);
+shape_label.innerHTML = 'Select Shape :'
+
 var square = document.createElement('button');
 square.className = 'shape';
 square.setAttribute('Id', 'sqr');
@@ -122,9 +131,9 @@ function get_shape() {
     }
 
 var eraser = document.createElement('img');
-eraser.style.width = '30px';
-eraser.style.height = '30px';
-eraser.style.marginBottom = '10px';
+eraser.style.width = '25px';
+eraser.style.height = '25px';
+eraser.style.marginBottom = '0px';
 eraser.src = "http://icons.iconarchive.com/icons/iconsmind/outline/256/Eraser-3-icon.png";
 eraser.addEventListener('click', erase);
 top_menu.appendChild(eraser);
@@ -157,7 +166,6 @@ function ok() {
     document.body.appendChild(can);
     can.style.display = 'none';
 
-/*can.addEventListener('click', draw);*/
 
 var paint = false;
 var x;
@@ -186,7 +194,7 @@ function draw(){
         var can = document.getElementById('canvas_div');
         var new_pix = document.createElement('div');
         new_pix.className = 'pix';
-        new_pix.style.backgroundColor = clickedColor;
+        new_pix.style.backgroundColor = document.getElementById('input_color').value;
         new_pix.style.width = size_input.value + 'px';
         new_pix.style.height = size_input.value + 'px';
         new_pix.style.borderRadius = selected_shape;
@@ -195,4 +203,6 @@ function draw(){
         new_pix.style.left = x;
     }
 }
+
+
 
