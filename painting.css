@@ -87,6 +87,7 @@ button{
 	border-radius: 10px;
 	margin: 6px 0px 8px 4px;
 }
+
 #more_color{
     display: inline-block;
     vertical-align: bottom;
@@ -97,7 +98,7 @@ button{
 
 p{
     display:inline-block;
-    margin: 0px 10px;
+    margin: 0px 6px;
     font-weight:bold;
 }
 
@@ -106,7 +107,7 @@ p{
     width: 40px;
     margin-left:0px;
 }
-
+/*
 #blue{
 	background-color: blue;
 }
@@ -125,7 +126,7 @@ p{
 
 #yellow{
 	background-color: yellow;
-}
+}*/
 
 #top_menu{
 	width: 500px;
@@ -171,4 +172,8 @@ p{
 .pix{
 	background-color: black;
 	position: absolute;
+}
+
+img{
+    margin: 0px 5px;
 }
